@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Js classes</title>
+</head>
+<body>
+  <script>
+    class Entity {
+      constructor(entityName) {
+        this.entityName = entityName;
+      }
+    }        
+
+    class User extends Entity {
+      constructor(entityName, userName) {
+        super(entityName);
+        this.userName = userName;
+      }
+    }
+
+    class Box extends User {
+      constructor(entityName, userName, boxName) {
+        super(entityName, userName);
+        this.boxName = boxName;
+      }
+    }
+
+    class Stuff extends Box {
+      constructor(entityName, userName, boxName, stuff) {
+        super(entityName, userName, boxName);
+        this.stuff = stuff;
+      }
+      
+      getStuff() {
+        console.log(`Box, which has a name of ${this.boxName},has ${this.stuff} inside it, and belongs to a user ${this.userName}, which in turn is child of Entity class with a name ${this.entityName}`);
+      }
+    }
+
+    let stuff = new Stuff('Kids', 'Michael', 'Ordinary box', 'pensils');
+    stuff.getStuff();
+  </script>
+</body>
+</html>
